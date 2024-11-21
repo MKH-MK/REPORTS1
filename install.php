@@ -14,4 +14,5 @@ Role TINYINT(1))
 
 $statement -> execute();
 $statement -> closeCursor();
+echo("<br>tblusers created")
 ?>
