@@ -1,5 +1,7 @@
 <?php
 include_once("connection.php");
+header('Location:users.php2');
+
 array_map("htmlspecialchars", $_POST);
 
 print_r($_POST);
@@ -17,7 +19,7 @@ switch($_POST["role"]){
 		break;
 }
 
-$stmt = $conn->prepare("INSERT INTO TblUser (UserID,Gender,Surname,Forename,Password,House,Year ,Role)
+$stmt = $conn->prepare("INSERT INTO tblusers (UserID,Gender,Surname,Forename,Password,House,Year ,Role)
 VALUES (null,:gender,:surname,:forename,:password,:house,:year,:role)");
 
 $stmt->bindParam(':forename', $_POST["forename"]);
