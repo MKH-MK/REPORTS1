@@ -26,15 +26,16 @@
     <input type="submit" value="Add User">
     </form>
 
-    <h2>Current Users</h2>
+    <h2>Current Users:</h2>
     
     <?php
     include_once("connection.php");
     $stmt = $conn->prepare("SELECT * FROM tblusers");
     $stmt->execute();
     while ($row =$stmt->fetch(PDO::FETCH_ASSOC))
-        {
-
+        {   
+            #print_r($row);
+            echo("<h4>".$row["forename"]." ".$row["surname"]."</h4>");
         }
     ?>
 

@@ -1,6 +1,6 @@
 <?php
 include_once("connection.php");
-header('Location:users.php2');
+header('Location:users.php');
 
 array_map("htmlspecialchars", $_POST);
 
