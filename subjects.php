@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-    
-    <title>SUBJECT FORM</title>
+<title>Subjects</title>
     
 </head>
 <body>
-
-    <form action="addsubject.php" method="POST">
-   
-    Subject Name:<input type="text" name="subjectname"><br>
-    Teacher:<input type="text" name="teacher"><br>
-
-    </form>
-
+   <form action="addsubjects.php" method="post">
+  Subject name:<input type="text" name="subjectname"><br>
+  Teacher:<input type="text" name="teacher"><br>
+  
+  <input type="submit" value="Add Subject">
+</form>
+  
 </body>
 </html>

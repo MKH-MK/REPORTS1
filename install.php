@@ -1,8 +1,9 @@
 <?php
 
 include_once("connection.php");
+
 $stmt = $conn->prepare("DROP TABLE IF EXISTS tblusers;
-CREATE TABLE tblusers
+CREATE TABLE tblusers 
 (userid INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 gender VARCHAR(1) NOT NULL,
 surname VARCHAR(20) NOT NULL,
@@ -44,5 +45,3 @@ $stmt->closeCursor();
 echo("<br>tblpupilstudies created");
 
 ?>
-
-
