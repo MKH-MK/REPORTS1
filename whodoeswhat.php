@@ -12,7 +12,10 @@
     <?php
     include_once("connection.php");
     
-    $stmt = $conn->prepare("SELECT tblsubjects.subjectname as sn, tblusers.forename as fn, tblusers.surname as ln 
+    $stmt = $conn->prepare("SELECT tblsubjects.subjectname as sn, 
+    tblusers.forename as fn, 
+    tblusers.surname as ln 
+    
     FROM tblpupilstudies 
     INNER JOIN tblsubjects ON tblsubjects.subjectid=tblpupilstudies.subjectid
     INNER JOIN tblusers ON tblusers.userid=tblpupilstudies.userid");

@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-    
-    <title>PUPIL REPORT FORM</title>
-    
-</head>
-<body>
-
-    <form action="pupilreport.php" method="POST">
-    
-    Comment: <textarea name="comment" rows="5" cols="40"><br>
-    Last name:<input type="text" name="surname"><br>
-    Password:<input type="password" name="passwd"><br>
-    House:<input type="text" name="house"><br>
-    Year:<input type="text" name="year"><br>
-    
-    <h2>Current Users:</h2>
-    
-    <?php
-    include_once("connection.php");
-    $stmt = $conn->prepare("SELECT * FROM tblusers");
-    $stmt->execute();
-    while ($row =$stmt->fetch(PDO::FETCH_ASSOC))
-        {   
-            #print_r($row);
-            echo("<h4>".$row["forename"]." ".$row["surname"]."</h4>");
-        }
-    ?>
-
-</body>
+<html lang="en">
+    <head>
+        <title>Select Pupil</title>
+    </head>
+    <body>
+        <h1>Select a Pupil</h1>
+        <form method="POST" action="addpupilreport.php">
+            <label for="userid">Select Pupil:</label>
+            <select name = "student">
+                <?php
+                    include_once("connection.php");
+                    $stmt = $conn->prepare("SELECT * FROM tblusers WHERE role=0 ORDER BY surname ASC");
+                    $stmt->execute();
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                        {
+                            //print_r($row);
+                            echo("<option value=".$row["userid"].">".$row["surname"].", ".$row["forename"]."</option>");
+                        }
+                ?>
+            </select>
+            <input type="submit">
+        </form>
+    </body>
 </html>
