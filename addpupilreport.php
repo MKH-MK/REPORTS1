@@ -5,12 +5,12 @@
     </head>
     <body>
         <h1>Select a Subject for the Pupil</h1>
-        <form method="POST" action="addpupilreportfinalphp">
+        <form method="POST" action="addpupilreportfinal.php">
             Subject:
             <select name="subjectid">
                 <?php
                     array_map("htmlspecialchars", $_POST);
-                    //print_r($_POST);
+                    print_r($_POST);
                     include_once("connection.php");
                     $stmt = $conn->prepare("SELECT tu.forename,ts.subjectname,ts.subjectid FROM tblusers AS tu INNER JOIN tblpupilstudies AS tps ON tu.userid = tps.userid INNER JOIN tblsubjects AS ts ON tps.subjectid = ts.subjectid WHERE tu.userid = :selecteduserid;");
                     $stmt->bindParam(':selecteduserid', $_POST["student"]);
